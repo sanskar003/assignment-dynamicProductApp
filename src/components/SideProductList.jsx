@@ -49,7 +49,7 @@ const SideProductList = () => {
             >
               <img
                 className="w-8 h-8 bg-red-400/50 hover:bg-red-500 transition-all duration-300 rounded-full p-1"
-                src="/icons/removeItem.png"
+                src="/assets/icons/removeItem.png"
                 alt="remove"
               />
             </button>
