@@ -3,6 +3,8 @@ import { fetchProduct } from "../api/productApi.js";
 import { useDispatch, useSelector } from "react-redux";
 import { setAddToCart, setProduct } from "../slices/productSlice.js";
 import SideProductList from "./SideProductList.jsx";
+import addToCart from "../assets/icons/addToCart.png"
+import starRating from "../assets/icons/starRating.png"
 
 const ProductDisplay = () => {
   const filteredProduct = useSelector(state => state.products.filteredProduct);
@@ -48,13 +50,13 @@ const ProductDisplay = () => {
                 ₹{val.price.toFixed(0)}
               </h2>
               <p className="bg-stone-100 flex gap-2 w-fit border border-white rounded-2xl px-2 py-0.5">
-                <img className="w-6 h-6" src="/assets/icons/starRating.png" alt="rating:" /> {val.rating.rate}
+                <img className="w-6 h-6" src={starRating} alt="rating:" /> {val.rating.rate}
               </p>
             </div>
             <button onClick={() => handleAddToCart(idx)}>
               <img
                 className="w-9 h-9 bg-yellow-200 hover:bg-yellow-300 p-1 rounded-full cursor-pointer"
-                src="/assets/icons/addToCart.png"
+                src={addToCart}
                 alt="+"
               />
             </button>

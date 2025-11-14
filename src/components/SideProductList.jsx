@@ -1,9 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart, setClearCart } from "../slices/productSlice";
+import { useEffect } from "react";
+import removeItem from "../assets/icons/removeItem.png"
 
 const SideProductList = () => {
   const cartItems = useSelector((state) => state.products.productCart);
   const dispatch = useDispatch();
+  
+  useEffect(() => {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  }, [cartItems]);
+
 
   const handleRemoveItem = (id) => {
     dispatch(removeFromCart(id));
@@ -49,7 +56,7 @@ const SideProductList = () => {
             >
               <img
                 className="w-8 h-8 bg-red-400/50 hover:bg-red-500 transition-all duration-300 rounded-full p-1"
-                src="/assets/icons/removeItem.png"
+                src={removeItem}
                 alt="remove"
               />
             </button>

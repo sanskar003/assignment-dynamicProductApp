@@ -1,9 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const storedCart = localStorage.getItem("cartItems");
+
 const initialState = {
   product: [],
   filteredProduct: [],
-  productCart: [],
+  productCart: storedCart ? JSON.parse(storedCart) : [],
 };
 
 const productSlice = new createSlice({
@@ -52,6 +54,7 @@ const productSlice = new createSlice({
     },
     resetFilter: (state) => {
       state.filteredProduct = state.product;
+      localStorage.removeItem('cartItems');
     },
   },
 });
